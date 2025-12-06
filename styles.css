@@ -3,14 +3,13 @@
 body {
   font-family: 'EB Garamond', serif;
   background: #f3e7d3;
-  background-image: url('https://www.transparenttextures.com/patterns/old-wall.png');
+  background-image: url('old-wall.png');
   padding: 40px;
   max-width: 900px;
   margin: auto;
   opacity: 0;
   animation: unfurl 1.6s ease-out forwards;
   border: 12px solid transparent;
-  border-image: url('https://i.imgur.com/x9K1J8w.png') 40 round;
 }
 
 h1 {
