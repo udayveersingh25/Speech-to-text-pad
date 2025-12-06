@@ -21,7 +21,6 @@ h1 {
   margin-bottom: 25px;
   text-shadow: 1px 1px 0 #fff8e6, 0 0 15px rgba(148, 21, 21, 0.4);
   letter-spacing: 2px;
-  animation: fadeIn 1.2s ease-in-out;
 }
 
 textarea {
@@ -34,12 +33,17 @@ textarea {
   background-image: url('https://www.transparenttextures.com/patterns/paper.png');
   border-radius: 8px;
   box-shadow: inset 0 0 15px rgba(0,0,0,0.25);
-  animation: parchmentReveal 1.5s ease-out;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
 }
 
 .controls button {
   padding: 12px 18px;
-  margin-right: 10px;
   background: linear-gradient(#b22222, #7a0a0a);
   color: #fff8e6;
   border: 2px solid #5e0b0b;
@@ -50,17 +54,6 @@ textarea {
   font-weight: 600;
 }
 
-.controls button:hover {
-  background: linear-gradient(#7a0a0a, #4c0707);
-  box-shadow: 0 0 12px rgba(122, 10, 10, 0.5);
-  transform: translateY(-1px);
-}
-
-.controls button:active {
-  transform: scale(0.92);
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
-}
-
 #notes li {
   background: #fff4db;
   border-left: 6px solid #b8860b;
@@ -69,8 +62,6 @@ textarea {
   border-radius: 5px;
   box-shadow: 0 0 12px rgba(0,0,0,0.15);
   font-size: 18px;
-  opacity: 0;
-  animation: quillStroke 0.8s ease forwards;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -94,11 +85,6 @@ textarea {
   font-weight: 600;
 }
 
-.delete-btn:hover, .view-btn:hover {
-  background: linear-gradient(#5e0b0b, #330404);
-  box-shadow: 0 0 8px rgba(120, 8, 8, 0.5);
-}
-
 #overlay {
   position: fixed;
   top: 0;
@@ -120,7 +106,6 @@ textarea {
   max-height: 80vh;
   overflow-y: auto;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.4);
   animation: parchmentReveal 0.6s ease-out;
 }
 
@@ -142,22 +127,70 @@ textarea {
   font-size: 18px;
 }
 
+@media (max-width: 900px) {
+  body {
+    padding: 20px;
+    border-width: 8px;
+  }
+  h1 {
+    font-size: 2.8rem;
+  }
+  #overlayContent {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  textarea {
+    height: 180px;
+    font-size: 16px;
+  }
+  .controls {
+    flex-direction: column;
+  }
+  .controls button {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+  }
+  #notes li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .note-buttons {
+    align-self: flex-end;
+  }
+  #overlayContent {
+    width: 90%;
+    padding: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+  textarea {
+    font-size: 14px;
+  }
+  .controls button {
+    font-size: 14px;
+  }
+  #overlayText {
+    font-size: 16px;
+  }
+}
+
 @keyframes unfurl {
   0% { transform: scaleY(0); opacity: 0; transform-origin: top; }
   100% { transform: scaleY(1); opacity: 1; }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 @keyframes parchmentReveal {
   0% { opacity: 0; transform: translateY(15px); }
   100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes quillStroke {
-  0% { opacity: 0; transform: translateX(-10px); }
-  100% { opacity: 1; transform: translateX(0); }
 }
