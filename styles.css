@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&display=swap');
+
+body {
+  font-family: 'EB Garamond', serif;
+  background: #f3e7d3;
+  background-image: url('https://www.transparenttextures.com/patterns/old-wall.png');
+  padding: 40px;
+  max-width: 900px;
+  margin: auto;
+  opacity: 0;
+  animation: unfurl 1.6s ease-out forwards;
+  border: 12px solid transparent;
+  border-image: url('https://i.imgur.com/x9K1J8w.png') 40 round;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3.3rem;
+  font-weight: 600;
+  color: #7a0a0a;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 0 #fff8e6, 0 0 15px rgba(148, 21, 21, 0.4);
+  letter-spacing: 2px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+textarea {
+  width: 100%;
+  height: 240px;
+  padding: 15px;
+  font-size: 19px;
+  border: 4px solid #7a0a0a;
+  background: #fff7e6;
+  background-image: url('https://www.transparenttextures.com/patterns/paper.png');
+  border-radius: 8px;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.25);
+  animation: parchmentReveal 1.5s ease-out;
+}
+
+.controls button {
+  padding: 12px 18px;
+  margin-right: 10px;
+  background: linear-gradient(#b22222, #7a0a0a);
+  color: #fff8e6;
+  border: 2px solid #5e0b0b;
+  border-radius: 50px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-weight: 600;
+}
+
+.controls button:hover {
+  background: linear-gradient(#7a0a0a, #4c0707);
+  box-shadow: 0 0 12px rgba(122, 10, 10, 0.5);
+  transform: translateY(-1px);
+}
+
+.controls button:active {
+  transform: scale(0.92);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+}
+
+#notes li {
+  background: #fff4db;
+  border-left: 6px solid #b8860b;
+  padding: 12px 14px;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+  font-size: 18px;
+  opacity: 0;
+  animation: quillStroke 0.8s ease forwards;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.delete-btn, .view-btn {
+  padding: 6px 12px;
+  background: linear-gradient(#8b1a1a, #5e0b0b);
+  color: #fff8e6;
+  border: 2px solid #4c0707;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-family: 'EB Garamond', serif;
+  font-weight: 600;
+}
+
+.delete-btn:hover, .view-btn:hover {
+  background: linear-gradient(#5e0b0b, #330404);
+  box-shadow: 0 0 8px rgba(120, 8, 8, 0.5);
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#overlayContent {
+  background: #fff7e6;
+  padding: 25px;
+  border: 5px solid #7a0a0a;
+  width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  animation: parchmentReveal 0.6s ease-out;
+}
+
+#overlayClose {
+  float: right;
+  padding: 8px 14px;
+  background: linear-gradient(#b22222, #7a0a0a);
+  color: #fff8e6;
+  border: 2px solid #5e0b0b;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'EB Garamond', serif;
+  font-weight: 600;
+}
+
+#overlayText {
+  white-space: pre-wrap;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+@keyframes unfurl {
+  0% { transform: scaleY(0); opacity: 0; transform-origin: top; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes parchmentReveal {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes quillStroke {
+  0% { opacity: 0; transform: translateX(-10px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
